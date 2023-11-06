@@ -1,0 +1,19 @@
+# docker run -d --name mongodb --network roboshop -v mongodb:/data/db mongodb:v1
+version: '3.9'
+networks:
+  roboshop:
+    driver: bridge #1
+volumes:
+  mongodb:
+  redis:
+  mysql:
+services:
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+    volumes:
+    - type: volumes
+      source: mongodb 
+      target: /data/db
+      volume:
+        nocopy: true
