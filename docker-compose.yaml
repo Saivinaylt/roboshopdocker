@@ -17,8 +17,13 @@ services:
       target: /data/db
       volume:
         nocopy: true
+  # catalogue:
+  #   image: catalogue:v1
+  #   container_name: catalogue
+  #   depends_on:
+  #   - mongodb
   catalogue:
     image: catalogue:v1
     container_name: catalogue
     depends_on:
-    - mongodb
+      - mongodb
