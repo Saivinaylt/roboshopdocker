@@ -12,7 +12,7 @@ services:
     image: mongodb:v1
     container_name: mongodb
     volumes:
-    - type: volumes
+    - type: volume
       source: mongodb 
       target: /data/db
       volume:
