@@ -66,6 +66,6 @@ services:
     depends_on:
     - catalogue
     - user
-    - carts
+    - cart
     - shipping
   
