@@ -43,6 +43,21 @@ services:
     depends_on:
       - catalogue
       - redis
+  mysql:
+    image: mysql:v1
+    container_name: mysql
+    volumes:
+      - type: volume
+        source: mysql
+        target: /var/lib/mysql
+        volume:
+          nocopy: true
+  shipping:
+    image: shipping:v1
+    container_name: =shipping
+    depends_on:
+      - cart
+      - mysql
   web:
     image: web:v1
     container_name: web
@@ -51,5 +66,6 @@ services:
     depends_on:
     - catalogue
     - user
-    - cart
+    - carts
+    - shipping
   
