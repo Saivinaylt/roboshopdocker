@@ -11,12 +11,12 @@ services:
   mongodb:
     image: mongodb:v1
     container_name: mongodb
-    # volumes:
-    # - type: volume
-    #   source: mongodb 
-    #   target: /data/db
-    #   volume:
-    #     nocopy: true
+    volumes:
+    - type: volume
+      source: mongodb 
+      target: /data/db
+      volume:
+        nocopy: true
   catalogue:
     image: catalogue:v1
     container_name: catalogue
@@ -25,12 +25,12 @@ services:
   redis:
     image: redis
     container_name: redis
-    # volumes:
-    # - type: volume
-    #   source: redis
-    #   target: /data
-    #   volume:
-    #     nocopy: true
+    volumes:
+    - type: volume
+      source: redis
+      target: /data
+      volume:
+        nocopy: true
   user:
     image: user:v1
     container_name: user
