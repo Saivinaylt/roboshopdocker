@@ -3,9 +3,9 @@
 #
 FROM debian:10 AS build
 
-RUN yum update  
+RUN apt-get update  
 
-RUN yum -y install maven 
+# RUN apt-get -y install maven 
 
 WORKDIR /opt/shipping
 
