@@ -42,6 +42,7 @@ services:
       - catalogue
       - user
       - cart
+      - ratings
   user:
     image: user:v1
     container_name: user
@@ -63,6 +64,11 @@ services:
         target: /var/lib/mysql
         volume: 
           nocopy: true
+  ratings:
+    image: ratings:v1
+    container_name: ratings
+    depends_on:
+      - mysql
   # shipping:
   #   image: shipping:v1
   #   container_name: shipping
