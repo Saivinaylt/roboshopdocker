@@ -74,4 +74,4 @@ services:
   #   container_name: shipping
   #   depends_on:
   #     - cart
-  #     - mysql
+  #     - mysqlFred
