@@ -1,21 +1,21 @@
 #
 # Build
 #
-FROM debian:10 AS build
+FROM almalinux:8 AS build
 
 RUN apt-get update \
     && apt-get -y install maven
 
-# WORKDIR /opt/shipping
-# COPY pom.xml /opt/shipping/
-# RUN mvn dependency:resolve
-# COPY src /opt/shipping/src/
-# # mvn package will download the packages and then compile java source and create .jar file
-# RUN mvn package 
+WORKDIR /opt/shipping
+COPY pom.xml /opt/shipping/
+RUN mvn dependency:resolve
+COPY src /opt/shipping/src/
+# mvn package will download the packages and then compile java source and create .jar file
+RUN mvn package 
 
-# #
-# # 
-# #
+#
+# 
+#
 # FROM openjdk:8-jdk
 
 # EXPOSE 8080
