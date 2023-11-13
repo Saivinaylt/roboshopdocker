@@ -3,8 +3,8 @@
 #
 FROM almalinux:8 AS build
 
-RUN apt-get update \
-    && apt-get -y install maven
+RUN yum update \
+    && yum -y install maven
 
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
