@@ -3,15 +3,14 @@
 #
 FROM almalinux:8 AS build
 
-RUN yum update \
-    && yum -y install maven
+RUN yum -y install maven
 
-WORKDIR /opt/shipping
-COPY pom.xml /opt/shipping/
-RUN mvn dependency:resolve
-COPY src /opt/shipping/src/
-# mvn package will download the packages and then compile java source and create .jar file
-RUN mvn package 
+# WORKDIR /opt/shipping
+# COPY pom.xml /opt/shipping/
+# RUN mvn dependency:resolve
+# COPY src /opt/shipping/src/
+# # mvn package will download the packages and then compile java source and create .jar file
+# RUN mvn package 
 
 #
 # 
