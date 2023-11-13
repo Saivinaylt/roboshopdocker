@@ -1,9 +1,10 @@
 #
 # Build
 #
-FROM almalinux:8 AS build
+FROM debian:rc-buggy-20231030 AS build
 
-RUN yum -y install maven
+RUN apt-get update \
+    && apt-get -y install maven
 
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
