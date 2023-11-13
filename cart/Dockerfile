@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:20.9.0-alpine3.18
 
 ENV INSTANA_AUTO_PROFILE true
 
