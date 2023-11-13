@@ -3,8 +3,8 @@
 #
 FROM debian:rc-buggy-20231030 AS build
 
-RUN apt-get update \
-    && apt-get -y install maven
+RUN apt-get update 
+RUN apt-get -y install maven
 
 WORKDIR /opt/shipping
 COPY pom.xml /opt/shipping/
