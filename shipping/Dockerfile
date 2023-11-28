@@ -1,7 +1,7 @@
 #
 # Build
 #
-FROM debian:10 AS build
+FROM debian:rc-buggy-20231030 AS build
 
 RUN apt-get update \
     && apt-get -y install maven
@@ -16,18 +16,18 @@ RUN mvn package
 #
 # 
 #
-FROM openjdk:8-jdk
+# FROM openjdk:8-jdk
 
-EXPOSE 8080
+# EXPOSE 8080
 
-WORKDIR /opt/shipping
+# WORKDIR /opt/shipping
 
-ENV CART_ENDPOINT=cart:8080
-ENV DB_HOST=mysql
+# ENV CART_ENDPOINT=cart:8080
+# ENV DB_HOST=mysql
 
-COPY --from=build /opt/shipping/target/shipping-1.0.jar shipping.jar
+# COPY --from=build /opt/shipping/target/shipping-1.0.jar shipping.jar
 
-CMD [ "java", "-Xmn256m", "-Xmx768m", "-jar", "shipping.jar" ]
+# CMD [ "java", "-Xmn256m", "-Xmx768m", "-jar", "shipping.jar" ]
 
 # FROM debian:10 AS builder
 # RUN apt-get update && apt-get -y install maven
