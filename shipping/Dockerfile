@@ -16,7 +16,7 @@ RUN mvn package
 #
 # 
 #
-FROM gcr.io/distroless/java11-debian11
+FROM openjdk:8-jdk
 
 EXPOSE 8080
 
